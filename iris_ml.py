@@ -1,32 +1,28 @@
-from sklearn.datasets import load_iris#꽃 데이터가져옴 
-from sklearn.tree import DecisionTreeClassifier#트리형식머신러닝?가져옴
-from sklearn.model_selection import train_test_split#테스트용 학습용 나누는함수 가져옴 
-from sklearn.metrics import accuracy_score# 정확도 알려주는?거 가져옴 
-import pandas as pd #판다스
+# Iris Machine Learning Project
 
-# 데이터 불러오기
-iris = load_iris()
+## 📌 프로젝트 설명
+붓꽃(Iris) 데이터를 이용해서
+머신러닝으로 꽃 품종을 예측하는 프로젝트입니다.
 
-X = iris.data
-y = iris.target
+## 🧠 사용한 기술
+- Python
+- Scikit-learn
+- Pandas
+- Decision Tree
 
-# train / test 분리
-X_train, X_test, y_train, y_test = train_test_split(
-    X, y,
-    test_size=0.9,
-    random_state=11
-)
+## ⚙️ 모델
+DecisionTreeClassifier 사용
 
-# 모델 생성
-model = DecisionTreeClassifier(random_state=11)
+## 📊 결과
+Accuracy: 약 0.93 ~ 0.94
 
-# 학습
-model.fit(X_train, y_train)
+## 📁 데이터
+- Iris dataset (sklearn 내장 데이터)
 
-# 예측
-pred = model.predict(X_test)
+## 🚀 목적
+머신러닝 기본 흐름 이해:
+- 데이터 분리
+- 모델 학습
+- 예측
+- 평가
 
-# 평가
-acc = accuracy_score(y_test, pred)
-
-print("정확도:", acc)
